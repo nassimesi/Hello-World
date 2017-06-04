@@ -1,0 +1,78 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2) {
+    struct ListNode* pre = NULL ;
+    struct ListNode* p = NULL;
+    struct ListNode* tete = NULL;
+    int a=0;
+    if (l1==NULL && l2==NULL)
+    {return NULL;}
+    else{
+        p= (struct ListNode*) malloc (sizeof(struct ListNode));
+        p-> val = 0;
+        p-> next = NULL;
+        tete= p;
+        pre = p;
+    }
+    struct ListNode* q = l1;
+    struct ListNode* r = l2;
+    while (q!= NULL || r!= NULL)
+    {
+        if (q!= NULL && r == NULL){printf("%d %d  \n", q->val, p->val);
+            a = p->val + q->val ; p->val= a%10; if ((a/10) >0)
+            {struct ListNode* pp= (struct ListNode*)malloc (sizeof(struct ListNode));
+            pp-> val = a / 10;
+            printf("oww resultat important %d \n\n" , a/10);
+            p-> next = pp;
+            pp->next = NULL;
+            printf("%p pointe pp \n",pp);
+            pre = p;
+            p = pre->next  ;
+            }else {pre = p;} q = q->next;printf("%d %d \n owww \n \n", q!= NULL, pre->next!= NULL);
+            if (pre->next == NULL &&  q!= NULL)
+            { p= (struct ListNode*)malloc (sizeof(struct ListNode));
+        p-> val = 0; p->next = NULL; pre->next = p;
+        printf("%p pointe p \n",p);}
+        }
+        else if (q == NULL && r != NULL) {printf("%d %d  \n", r->val, p->val);
+            a = p->val + r->val; p->val= a%10 ; if ((a/10) >0)
+            {struct ListNode* pp= (struct ListNode*)malloc (sizeof(struct ListNode));
+            pp-> val = a / 10;
+            printf("oww resultat important %d \n\n" , a/10);
+            p-> next = pp;
+            pp->next = NULL;
+            pre = p;
+            p = pre->next  ;
+            } else {pre = p;}r=r->next;
+            if (pre->next == NULL &&  r!= NULL)
+            {printf ("malek"); p= (struct ListNode*)malloc (sizeof(struct ListNode));
+        p-> val = 0; p->next = NULL; pre->next = p;
+        printf("%p pointe p \n",p);}}
+        else {
+         a = p->val + q-> val + r-> val;
+            p->val = a%10;
+            printf("le resultat est %d et a est %d \n", p->val, a );
+            if ((a/10) >0)
+            {struct ListNode* pp= (struct ListNode*)malloc (sizeof(struct ListNode));
+            pp-> val = a / 10;
+            p-> next = pp;
+            pp->next = NULL;
+             pre = p;
+            p = pre->next  ; printf("pointeur identique %p",p);
+            }else{printf("j'ai passe ici");pre = p;}
+        q = q->next;    r = r->next;    
+            if (pre->next == NULL && (q!= NULL || r!= NULL))
+            { p= (struct ListNode*)malloc (sizeof(struct ListNode));
+        p-> val = 0; p->next = NULL; pre->next = p;
+        printf("%p pointe p \n",p);}
+        
+
+        }
+    }
+           return tete;}
+ 
