@@ -1,0 +1,38 @@
+bool isPalindrome(int x) {
+    int a= 0;
+    int b= 0;
+    int c= 0;
+    int d= 0;
+    int e= 0;
+    int f= 0;
+    int g =x;
+    a = 1000000000;
+    b = 1;
+    c = x;
+    if (g < 0){return false;}
+    else {
+    while (x/a == 0 && a>=10){a = a/10;}
+    while (a!= 0){
+        //a = 1000000000;
+        //while (c/a == 0 && a>=10){a = a/10; printf ("%d puis a3 \n",a);}
+        //a = a/10;
+        d = c / a;  
+        e = c % 10 ; if (a<b && a==1 ){e=0;};
+        c=0;
+        if (a!=b || (a==b && b>=10)) {c =  e  * a * b;  if ((e *a)% a !=0 ){return false;}}
+        c = c +  d * b;  
+        b = b*10; 
+        f = f+c;  if (f==-2147483645 || f == 2147483645) {return false;}
+        if (a != 0) {c = x % a; }
+        a = a/10;  
+        c = c/10; 
+        a = a/10; 
+        x =c;       
+    printf("*******");
+        
+    }
+    printf("%d contre %d",f,g);
+    
+    return (g==f);
+    }
+}
