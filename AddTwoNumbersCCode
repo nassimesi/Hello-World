@@ -38,6 +38,7 @@ struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2) {
             { p= (struct ListNode*)malloc (sizeof(struct ListNode));
         p-> val = 0; p->next = NULL; pre->next = p;
         printf("%p pointe p \n",p);}
+        aaa
         }
         else if (q == NULL && r != NULL) {printf("%d %d  \n", r->val, p->val);
             a = p->val + r->val; p->val= a%10 ; if ((a/10) >0)
