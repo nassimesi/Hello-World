@@ -1,0 +1,41 @@
+char* reverseWords(char* s) {
+    /*token words from the string*/
+    int p=0; //pointer of char of string
+    int bw=0; //pointer of begenning of actual word in the string
+    int cpt=0; //size of the word
+    while (s[p]!='\0') //if it is not the end of the string
+    {
+        if(s[p]==' ') {
+            p=bw;
+            char t='0'; //temporary char variable 
+            /*swap the chars of the pointed word */
+            while (p<=(2*bw+cpt-1)/2){
+                t=s[p];
+                s[p]=s[2*bw+cpt-1-p];
+                s[2*bw+cpt-1-p]=t;
+                p++;
+            }
+            /*Preparing for the next word  */
+            p=bw+cpt+1;
+            bw=p;
+            cpt=0;
+            
+            
+        }
+        else { p++; cpt++;}// stilling in the same word, going to the next letter
+            
+    }
+    /*swap the last word*/
+        p=bw;
+        char t='0';
+        /*swap the chars of the last and pointed word*/
+        while (p<=(2*bw+cpt-1)/2){
+        t=s[p];
+        s[p]=s[2*bw+cpt-1-p];
+        s[2*bw+cpt-1-p]=t;
+        p++;
+            }
+    
+    /* return the string with its words inversed */
+    return s;
+}
